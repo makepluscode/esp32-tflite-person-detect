@@ -14,14 +14,18 @@ limitations under the License.
 ==============================================================================*/
 
 #include "main_functions.h"
+#include "server.h"
 
-// This is the default main used on systems that have the standard C entry
-// point. Other devices (for example FreeRTOS or ESP32) that have different
-// requirements for entry code (like an app_main function) should specialize
-// this main.cc file in a target-specific subfolder.
 extern "C" void app_main() {
-
   setup();
+
+/*
+** Build error
+** .dram0.bss will not fit in region dram0_0_seg
+*/
+#ifdef ERROR_BSS_OVERFLOW
+  init_webserver();
+#endif
   while (true) {
     loop();
   }

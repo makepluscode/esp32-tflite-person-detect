@@ -9,12 +9,14 @@ set(SRC_FILES
     "./src/inference/detection_responder.cc"
     "./src/inference/main_functions.cc"
     "./src/inference/model_settings.cc"
+    "./src/webserver/server.cc"
 )
 
 set(INC_DIRS
     "."
     "./src/camera"
     "./src/inference"
+    "./src/webserver"
     "../components/esp32-camera/driver/include"
 )
 
